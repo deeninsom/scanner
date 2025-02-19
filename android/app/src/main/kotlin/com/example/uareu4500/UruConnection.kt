@@ -79,10 +79,11 @@ class UruConnection {
   // Fungsi untuk mengecek apakah sidik jari terdeteksi
 private fun isFingerDetected(): Boolean {
   // Assuming your device has a specific register or command to check if the finger is detected
-  val statusData = readRegister(mConnection!!, 8, 1) // 8 is a hypothetical register that could hold the finger detection status
+  val statusData = readRegister(mConnection!!, 7, 1) // 8 is a hypothetical register that could hold the finger detection status
   
   // For example, let's assume that the device returns 0x01 if the finger is detected
-  return statusData[0] == 0x01.toByte()
+  // return statusData[0] == 0x01.toByte()
+  return statusData[0] == MODE_AWAIT_FINGER_ON
 }
 
 // Fungsi untuk menunggu sidik jari dan memulai pemindaian jika sidik jari terdeteksi
